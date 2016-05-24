@@ -130,10 +130,10 @@ function initSettings (args) {
 
     // events
     for (var key in args.custom) {
-        var fpath = args.custom[key].events;
-        if (fpath) break;
+        var events = args.custom[key].events;
+        if (events) break;
     }
-    var events = fpath ? require(fpath) : {};
+    
     if (!events.hasOwnProperty('preSave'))
         events.preSave = function (req, res, args, next) {next()};
     if (!events.hasOwnProperty('postSave'))
